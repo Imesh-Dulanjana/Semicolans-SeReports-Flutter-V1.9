@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 const String authBaseUrl =
     "https://semicolans-sereports-flutter-android-ios-windows-production.up.railway.app/api/";
-
+      
 // =============================================================
 // DATA SERVER
 // =============================================================
