@@ -1,25 +1,17 @@
 import 'package:flutter/material.dart';
+// Production database server containing REAL business data.
+// All dashboard/products/customers/sales APIs use this.
+// =============================================================
 
-const ip = "69.62.83.161";
+const String dataBaseUrl =
+    "https://69.62.83.161/api/";
 
-// =============================================================================
-// SERVER CONFIGURATION
-// Switch between Railway (testing) and live server by toggling the sections below.
-// =============================================================================
+// If SSL gives issues, use:
+// const String dataBaseUrl = "http://69.62.83.161/api/";
 
-// --- Railway (Testing Server) ---
-// Used for development/testing. Hosted on Railway, no cost for low-traffic testing.
-// DO NOT include /login here – the api.dart will append auth/login automatically.
-const String baseUrl  = "https://semicolans-sereports-flutter-android-ios-windows-production.up.railway.app/api/";
-
-// --- Live Server (Production) ---
-// Uncomment the lines below and comment out the Railway section above
-// when switching to the live production server.
-// const String baseUrl  = "https://sereportapi.semicolans.cloud/api/";
-
-// =============================================================================
+// =============================================================
 // APP COLORS
-// =============================================================================
+// =============================================================
 
 const kBackgroundColor = Color(0xFFF5F9FA);
 const grayColorForBorader = Color(0xFFA5A3A3);
@@ -32,9 +24,9 @@ const warningColor = Color(0xFFFFA000);
 
 const radiusValue = 8.0;
 
-// =============================================================================
+// =============================================================
 // INPUT BORDER STYLES
-// =============================================================================
+// =============================================================
 
 const kDefaultInputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -51,9 +43,9 @@ const kDefaultFocusErrorBorder = OutlineInputBorder(
   borderRadius: BorderRadius.all(Radius.circular(8)),
 );
 
-// =============================================================================
+// =============================================================
 // DROPDOWN DATA
-// =============================================================================
+// =============================================================
 
 final List<String> dateRanges = [
   "Today",
