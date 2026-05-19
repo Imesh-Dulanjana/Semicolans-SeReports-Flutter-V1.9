@@ -128,7 +128,7 @@ static String categoryId = 'categoryId';
   static Future<LoginResult> loginCompany(
     String username,
     String password,
-    String pinNumber,
+    String pinnumber,
   ) async {
     try {
       final response = await post(
@@ -136,7 +136,7 @@ static String categoryId = 'categoryId';
         body: {
           'username': username,
           'password': password,
-          'pinNumber': pinNumber,
+          'pinnumber': pinnumber,
         },
       );
 
