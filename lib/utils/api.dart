@@ -69,10 +69,61 @@ class Api {
       '${dataBaseUrl}purchases/purchase-details';
 
   static String getIncomeExpensesDetails =
-      '${dataBaseUrl}income-expenses/details';
+    '${dataBaseUrl}income-expenses/details';
 
-  static String searchText = 'searchText';
-  static String categoryId = 'categoryId';
+static String companyName =
+    '${dataBaseUrl}user/get-user-details';
+
+static String getBankNameList =
+    '${dataBaseUrl}bank-details/get-all-bank-names';
+
+static String getBankDetails =
+    '${dataBaseUrl}bank-details/get-all-bank-details';
+
+static String getBankTransactions =
+    '${dataBaseUrl}banking/bank-transaction-details';
+
+static String getCategoryNameList =
+    '${dataBaseUrl}categories/get-all-category-name-list';
+
+static String getSubCategoryNameList =
+    '${dataBaseUrl}sub-categories/get-all-sub-category-name-list';
+
+static String getSupplierNameList =
+    '${dataBaseUrl}suppliers/get-all-suppliers-name-list';
+
+static String getCreditorDetailsList =
+    '${dataBaseUrl}suppliers-creditor/get-creditor-details-list';
+
+static String getSupplierPayableList =
+    '${dataBaseUrl}suppliers/payable-details';
+
+static String getCustomerDebitors =
+    '${dataBaseUrl}customers/get-debtor-details';
+
+static String getCustomerRecivables =
+    '${dataBaseUrl}receivables/receivable-details';
+
+static String lookupItemByBarcode =
+    '${dataBaseUrl}invoice/item-lookup';
+
+static String createInvoice =
+    '${dataBaseUrl}invoice/create';
+
+static String calculatePrice =
+    '${dataBaseUrl}invoice/calculate-price';
+
+static String checkPriceLink =
+    '${dataBaseUrl}invoice/check-price-link';
+
+static String lastInvPriceByCustomer =
+    '${dataBaseUrl}invoice/last-inv-price-by-customer';
+
+static String lastInvPriceByItem =
+    '${dataBaseUrl}invoice/last-inv-price-by-item';
+
+static String searchText = 'searchText';
+static String categoryId = 'categoryId';
 
   static Future<LoginResult> loginCompany(
     String username,
