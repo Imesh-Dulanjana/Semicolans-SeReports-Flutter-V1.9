@@ -11,8 +11,7 @@ const String authBaseUrl =
 // DATA SERVER
 // =============================================================
 
-const String dataBaseUrl =
-    "https://69.62.83.161/api/";
+const String dataBaseUrl = "https://semicolans-sereports-flutter-v19-production.up.railway.app/api/";
 
 // =============================================================
 // APP COLORS
