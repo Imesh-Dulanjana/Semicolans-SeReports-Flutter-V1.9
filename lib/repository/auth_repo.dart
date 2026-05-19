@@ -17,6 +17,8 @@ class AuthRepo {
   Future<LoginResult> login(String username, String password, String pinnumber) async {
     final result = await Api.loginCompany(username, password, pinnumber);
     if (result.success) {
+      // ✅ FIX: Save the token to SharedPreferences so isLoggedIn() works correctly
+      await saveToken(result.token!);
       await _fetchAndCachePermissions();
     }
     return result;
