@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-// Production database server containing REAL business data.
-// All dashboard/products/customers/sales APIs use this.
+
+// =============================================================
+// AUTH SERVER
+// =============================================================
+
+const String authBaseUrl =
+    "https://semicolans-sereports-flutter-android-ios-windows-production.up.railway.app/api/";
+
+// =============================================================
+// DATA SERVER
 // =============================================================
 
 const String dataBaseUrl =
     "https://69.62.83.161/api/";
-
-// If SSL gives issues, use:
-// const String dataBaseUrl = "http://69.62.83.161/api/";
 
 // =============================================================
 // APP COLORS
@@ -69,4 +74,12 @@ final List<String> gap = [
   "Above 180 Days",
 ];
 
-final List<String> location = ["All", "1", "2", "3", "4", "5", "6"];
+final List<String> location = [
+  "All",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6"
+];
