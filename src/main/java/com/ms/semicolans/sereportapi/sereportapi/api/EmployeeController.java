@@ -1,15 +1,19 @@
 package com.ms.semicolans.sereportapi.sereportapi.api;
 
+import java.sql.SQLException;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.ms.semicolans.sereportapi.sereportapi.dto.responsedto.paginated.PaginatedResponseEmployeeDTO;
 import com.ms.semicolans.sereportapi.sereportapi.service.EmployeeService;
-import com.ms.semicolans.sereportapi.sereportapi.service.impl.EmployeeServiceImpl;
 import com.ms.semicolans.sereportapi.sereportapi.util.StandardResponse;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLException;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/employees")
@@ -18,7 +22,7 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    //////removed preauthorize
     @GetMapping(path = "/employee-details", params = {"page", "size"})
     public ResponseEntity<StandardResponse> getEmployeeDetails(
             @RequestParam int page,

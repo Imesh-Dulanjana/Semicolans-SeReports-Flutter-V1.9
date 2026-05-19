@@ -1,22 +1,27 @@
 package com.ms.semicolans.sereportapi.sereportapi.api;
 
+import java.sql.SQLException;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.ms.semicolans.sereportapi.sereportapi.dto.responsedto.paginated.PaginatedResponseCreditorsDetailsDTO;
 import com.ms.semicolans.sereportapi.sereportapi.service.SupplierCreditorService;
 import com.ms.semicolans.sereportapi.sereportapi.util.StandardResponse;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLException;
+import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/v1/suppliers-creditor")
 @RequiredArgsConstructor
 public class SupplierCreditorController {
     private final SupplierCreditorService supplierCreditorService;
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    //////removed preauthorize
     @GetMapping(path = {"/get-creditor-details-list"}, params = {"page", "size"})
     public ResponseEntity<StandardResponse> getSupplierDetails(
             @RequestParam(required = false) String supplierSearch,

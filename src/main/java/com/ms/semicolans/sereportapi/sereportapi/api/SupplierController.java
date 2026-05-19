@@ -1,22 +1,27 @@
 package com.ms.semicolans.sereportapi.sereportapi.api;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.ms.semicolans.sereportapi.sereportapi.dto.responsedto.ResponseCommonNameAndCodeDTO;
 import com.ms.semicolans.sereportapi.sereportapi.dto.responsedto.paginated.PaginatedResponseCreditorsDetailsDTO;
 import com.ms.semicolans.sereportapi.sereportapi.dto.responsedto.paginated.PaginatedResponsePayableDTO;
 import com.ms.semicolans.sereportapi.sereportapi.service.SupplierService;
 import com.ms.semicolans.sereportapi.sereportapi.service.impl.SupplierServiceImpl;
 import com.ms.semicolans.sereportapi.sereportapi.util.StandardResponse;
-import lombok.RequiredArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/suppliers")
@@ -25,7 +30,7 @@ public class SupplierController {
     private final SupplierService supplierService;
     private final SupplierServiceImpl supplierServiceImpl;
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    //////removed preauthorize
     @GetMapping(path = {"/get-all-suppliers-name-list"}, params = {"searchText"})
     public ResponseEntity<StandardResponse> getAllSuppliersNameList(@RequestParam String searchText, @RequestHeader("Authorization") String token) throws SQLException {
 
@@ -37,14 +42,14 @@ public class SupplierController {
         );
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    //////removed preauthorize
     @GetMapping(path = {"/get-all-suppliers"}, params = {"searchText"})
     public void getAllSuppliers(@RequestParam String searchText, @RequestHeader("Authorization") String token) throws SQLException, IOException {
         System.out.println("suppler" + searchText);
 
         supplierService.getSupplierData(searchText, token);
     }
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    //////removed preauthorize
     @GetMapping(path = "/supplier-details", params = {"page", "size"})
     public ResponseEntity<StandardResponse> getSupplierDetails(
             @RequestParam int page,
@@ -76,7 +81,7 @@ public class SupplierController {
         );
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    //////removed preauthorize
     @GetMapping(path = "/payable-details", params = {"page", "size"})
     public ResponseEntity<StandardResponse> getPayableDetails(
             @RequestParam int page,

@@ -1,17 +1,22 @@
 package com.ms.semicolans.sereportapi.sereportapi.api;
 
-import com.ms.semicolans.sereportapi.sereportapi.dto.responsedto.paginated.*;
-import com.ms.semicolans.sereportapi.sereportapi.service.*;
-import com.ms.semicolans.sereportapi.sereportapi.util.StandardResponse;
-import lombok.RequiredArgsConstructor;
+import java.sql.SQLException;
+import java.time.LocalDate;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.SQLException;
-import java.time.LocalDate;
+import com.ms.semicolans.sereportapi.sereportapi.dto.responsedto.paginated.PaginatedResponseSalesDTO;
+import com.ms.semicolans.sereportapi.sereportapi.service.SalesService;
+import com.ms.semicolans.sereportapi.sereportapi.util.StandardResponse;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/sales")
@@ -19,7 +24,7 @@ import java.time.LocalDate;
 public class SalesController {
     private final SalesService salesService;
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    //////removed preauthorize
     @GetMapping(path = "/sales-details", params = {"page", "size"})
     public ResponseEntity<StandardResponse> getSalesDetails(
             @RequestParam int page,

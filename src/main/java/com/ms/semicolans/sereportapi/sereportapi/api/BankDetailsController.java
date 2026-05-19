@@ -18,7 +18,6 @@ import java.time.LocalDate;
 public class BankDetailsController {
     private final BankDetailsService bankDetailsService;
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping(path = {"/get-all-bank-names"})
     public ResponseEntity<StandardResponse> getAllBankNames
             (@RequestHeader("Authorization") String token) throws SQLException {
@@ -28,7 +27,6 @@ public class BankDetailsController {
     }
 
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping(path = {"/get-all-bank-details"})
     public ResponseEntity<StandardResponse> getBankDetails
 

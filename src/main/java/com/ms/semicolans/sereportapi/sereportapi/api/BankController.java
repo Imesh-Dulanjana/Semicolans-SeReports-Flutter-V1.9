@@ -22,7 +22,6 @@ public class BankController {
 
     private final BankServiceImpl bankService;
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping(path = {"/get-all-bank-names"})
     public ResponseEntity<StandardResponse> getAllBankDetails
             (@RequestHeader("Authorization") String token) throws SQLException {
@@ -31,7 +30,6 @@ public class BankController {
                 , HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping(path = "/bank-details-with-summary", params = {"page", "size", "locaCode", "bank", "dateTo"})
     public ResponseEntity<StandardResponse> getBankDetailsWithSummary(
             @RequestParam int page,
@@ -59,7 +57,6 @@ public class BankController {
         );
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping(path = "/bank-transaction-details", params = {"page", "size"})
     public ResponseEntity<StandardResponse> getBankTransactions(
             @RequestParam int page,
@@ -92,7 +89,6 @@ public class BankController {
         ), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping(path = "/cheque-transaction-details", params = {"page", "size"})
     public ResponseEntity<StandardResponse> getChqTransactions(
             @RequestParam int page,

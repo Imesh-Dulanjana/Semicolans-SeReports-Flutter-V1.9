@@ -18,7 +18,7 @@ import java.time.LocalDate;
 public class ChqController {
     private final ChqService chqService;
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+
     @GetMapping(path = {"/chq-transactions"})
     public ResponseEntity<StandardResponse> getCheques(
             @RequestParam(defaultValue = "All") String locaCode,

@@ -36,7 +36,6 @@ public class CategoryController {
         );
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping(path = {"/get-all-category-name-list"}, params = {"searchText"})
     public ResponseEntity<StandardResponse> getAllCategoryNameList(@RequestParam String searchText, @RequestHeader("Authorization") String token) throws SQLException {
 
@@ -48,7 +47,6 @@ public class CategoryController {
 
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping(path = {"/get-all-category-name"}, params = {"searchText", "page", "size"})
     public ResponseEntity<StandardResponse> getAllCategoryName(@RequestParam String searchText, int page, int size, @RequestHeader("Authorization") String token) throws SQLException {
 
