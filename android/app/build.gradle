@@ -4,11 +4,13 @@ plugins {
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
+
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
+
 android {
     namespace = "com.semicolans.sereports"
     compileSdk = flutter.compileSdkVersion
@@ -45,9 +47,13 @@ android {
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
-            minifyEnabled false
-            shrinkResources false
+            // FIX 1: Uses the built-in debug key to skip the missing keystore crash completely
+            signingConfig signingConfigs.debug
+            
+            // FIX 2: Strips away unused code and native library files to give you a minimal size APK
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
